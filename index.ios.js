@@ -18,7 +18,7 @@ var AwesomeReactNativeProject = React.createClass({
     getInitialState: function() {
         return {
             dataSource: new ListView.DataSource({
-                rowHasChanged: (row1, row2) => row1 !== row2
+                rowHasChanged: (row1, row2) => (row1 !== row2)
             }),
             loaded: false
         };
@@ -35,14 +35,13 @@ var AwesomeReactNativeProject = React.createClass({
 
         return (
             <ListView   dataSource={this.state.dataSource}
-                    renderRow={this.renderMovie}
+                    renderRow={this._renderMovie}
                     style={styles.listView}
             />
         );
     },
 
-    renderMovie: function(movie) {
-        console.log('rendering movie');
+    _renderMovie: function(movie) {
         return (
             <View style={styles.container}>
                 <Image
@@ -61,7 +60,7 @@ var AwesomeReactNativeProject = React.createClass({
         return (
             <View style={styles.container}>
                 <Text>
-                    Loading movies...
+                    Loading in Progress...
                 </Text>
             </View>
         );
@@ -119,4 +118,4 @@ var styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('AwesomeReactNativeProject', () => AwesomeReactNativeProject);
+AppRegistry.registerComponent('AwesomeReactNativeProject', () => (AwesomeReactNativeProject));
